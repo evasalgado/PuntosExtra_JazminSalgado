@@ -60,6 +60,13 @@ public class main extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         pn_torneo = new javax.swing.JPanel();
+        tf_nombretorn = new javax.swing.JTextField();
+        cb_teamtorn = new javax.swing.JComboBox<>();
+        cb_partidotorn = new javax.swing.JComboBox<>();
+        bt_agregarsport = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         pn_deporte = new javax.swing.JPanel();
         cb_tornoes = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
@@ -248,49 +255,39 @@ public class main extends javax.swing.JFrame {
 
         jPanel2.add(pn_partido, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 14, 490, -1));
 
-        javax.swing.GroupLayout pn_torneoLayout = new javax.swing.GroupLayout(pn_torneo);
-        pn_torneo.setLayout(pn_torneoLayout);
-        pn_torneoLayout.setHorizontalGroup(
-            pn_torneoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
-        );
-        pn_torneoLayout.setVerticalGroup(
-            pn_torneoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
-        );
+        pn_torneo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pn_torneo.add(tf_nombretorn, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 58, 218, 73));
+
+        pn_torneo.add(cb_teamtorn, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 200, 218, 62));
+
+        pn_torneo.add(cb_partidotorn, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 289, 218, 62));
+
+        bt_agregarsport.setText("Agregar");
+        bt_agregarsport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_agregarsportMouseClicked(evt);
+            }
+        });
+        pn_torneo.add(bt_agregarsport, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 413, -1, -1));
+
+        jLabel7.setText("Name");
+        pn_torneo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 36, 72, -1));
+
+        jLabel8.setText("Equipo");
+        pn_torneo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 72, -1));
+
+        jLabel9.setText("Partido");
+        pn_torneo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 72, -1));
 
         jPanel2.add(pn_torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 14, 490, -1));
 
-        jButton3.setText("Agregar");
+        pn_deporte.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout pn_deporteLayout = new javax.swing.GroupLayout(pn_deporte);
-        pn_deporte.setLayout(pn_deporteLayout);
-        pn_deporteLayout.setHorizontalGroup(
-            pn_deporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_deporteLayout.createSequentialGroup()
-                .addGroup(pn_deporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pn_deporteLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pn_deporteLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(pn_deporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(cb_tornoes, 0, 222, Short.MAX_VALUE))))
-                .addContainerGap(233, Short.MAX_VALUE))
-        );
-        pn_deporteLayout.setVerticalGroup(
-            pn_deporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_deporteLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(cb_tornoes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
-        );
+        pn_deporte.add(cb_tornoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 35, 222, 68));
+        pn_deporte.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 153, 222, 78));
+
+        jButton3.setText("Agregar");
+        pn_deporte.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 361, 138, 52));
 
         jPanel2.add(pn_deporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 14, 490, -1));
 
@@ -382,8 +379,12 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_mi_tablaposicionesActionPerformed
 
     private void bt_equipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_equipoMouseClicked
-        
+        bt_partido.setEnabled(true);
     }//GEN-LAST:event_bt_equipoMouseClicked
+
+    private void bt_agregarsportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarsportMouseClicked
+        bt_deporte.setEnabled(true);
+    }//GEN-LAST:event_bt_agregarsportMouseClicked
 
     /**
      * @param args the command line arguments
@@ -425,10 +426,13 @@ public class main extends javax.swing.JFrame {
     ArrayList<partido> p = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt_addqeuipi;
+    private javax.swing.JButton bt_agregarsport;
     private javax.swing.JButton bt_deporte;
     private javax.swing.JButton bt_equipo;
     private javax.swing.JButton bt_partido;
     private javax.swing.JButton bt_torneo;
+    private javax.swing.JComboBox<String> cb_partidotorn;
+    private javax.swing.JComboBox<String> cb_teamtorn;
     private javax.swing.JComboBox<String> cb_tornoes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -441,6 +445,9 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel7;
@@ -465,5 +472,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTable tb_partidos;
     private javax.swing.JTable tb_pos;
     private javax.swing.JTextField tf_equiponame;
+    private javax.swing.JTextField tf_nombretorn;
     // End of variables declaration//GEN-END:variables
 }
