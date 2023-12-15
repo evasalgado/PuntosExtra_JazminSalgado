@@ -18,6 +18,7 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
+        
     }
 
     /**
@@ -58,7 +59,7 @@ public class main extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        bt_addpart = new javax.swing.JButton();
         pn_torneo = new javax.swing.JPanel();
         tf_nombretorn = new javax.swing.JTextField();
         cb_teamtorn = new javax.swing.JComboBox<>();
@@ -157,6 +158,11 @@ public class main extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bt_torneo.setText("Torneo");
+        bt_torneo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_torneoMouseClicked(evt);
+            }
+        });
         jPanel2.add(bt_torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 205, 56));
 
         bt_equipo.setText("Equipo");
@@ -181,6 +187,11 @@ public class main extends javax.swing.JFrame {
         tf_equiponame.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         bt_addqeuipi.setText("Agregar Equipo");
+        bt_addqeuipi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_addqeuipiMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pn_equipoLayout = new javax.swing.GroupLayout(pn_equipo);
         pn_equipo.setLayout(pn_equipoLayout);
@@ -216,7 +227,12 @@ public class main extends javax.swing.JFrame {
 
         jLabel6.setText("Equipo 2:");
 
-        jButton2.setText("Agregar Partido");
+        bt_addpart.setText("Agregar Partido");
+        bt_addpart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_addpartMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pn_partidoLayout = new javax.swing.GroupLayout(pn_partido);
         pn_partido.setLayout(pn_partidoLayout);
@@ -234,7 +250,7 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(pn_partidoLayout.createSequentialGroup()
                 .addGap(158, 158, 158)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bt_addpart, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn_partidoLayout.setVerticalGroup(
@@ -249,7 +265,7 @@ public class main extends javax.swing.JFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bt_addpart, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
 
@@ -379,12 +395,31 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_mi_tablaposicionesActionPerformed
 
     private void bt_equipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_equipoMouseClicked
-        bt_partido.setEnabled(true);
+        pn_torneo.setVisible(false);
+        pn_equipo.setVisible(true);
+        pn_deporte.setVisible(false);
+        pn_partido.setVisible(false);
+
     }//GEN-LAST:event_bt_equipoMouseClicked
 
     private void bt_agregarsportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_agregarsportMouseClicked
         bt_deporte.setEnabled(true);
     }//GEN-LAST:event_bt_agregarsportMouseClicked
+
+    private void bt_torneoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_torneoMouseClicked
+        pn_torneo.setVisible(true);
+        pn_equipo.setVisible(false);
+        pn_deporte.setVisible(false);
+        pn_partido.setVisible(false);
+    }//GEN-LAST:event_bt_torneoMouseClicked
+
+    private void bt_addqeuipiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addqeuipiMouseClicked
+        bt_partido.setEnabled(true);
+    }//GEN-LAST:event_bt_addqeuipiMouseClicked
+
+    private void bt_addpartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addpartMouseClicked
+        bt_torneo.setEnabled(true);
+    }//GEN-LAST:event_bt_addpartMouseClicked
 
     /**
      * @param args the command line arguments
@@ -425,6 +460,7 @@ public class main extends javax.swing.JFrame {
     ArrayList<deporte> d = new ArrayList<>();
     ArrayList<partido> p = new ArrayList<>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_addpart;
     private javax.swing.JButton bt_addqeuipi;
     private javax.swing.JButton bt_agregarsport;
     private javax.swing.JButton bt_deporte;
@@ -435,7 +471,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_teamtorn;
     private javax.swing.JComboBox<String> cb_tornoes;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;

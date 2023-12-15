@@ -210,6 +210,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Torneo"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_torneoMouseClicked"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="150" width="205" height="56"/>
@@ -313,6 +316,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Agregar Equipo"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_addqeuipiMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -341,7 +347,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="155" max="-2" attributes="0"/>
+                          <Component id="bt_addpart" min="-2" pref="155" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -360,7 +366,7 @@
                               <Component id="jComboBox2" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="265" max="32767" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="71" max="-2" attributes="0"/>
+                          <Component id="bt_addpart" min="-2" pref="71" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -397,10 +403,13 @@
                     <Property name="text" type="java.lang.String" value="Equipo 2:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="bt_addpart">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Agregar Partido"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="bt_addpartMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
