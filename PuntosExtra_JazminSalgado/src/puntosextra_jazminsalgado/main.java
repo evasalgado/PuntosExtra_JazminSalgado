@@ -45,7 +45,7 @@ public class main extends javax.swing.JFrame {
         jd_posiciones = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
         tb_pos = new javax.swing.JTable();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tab = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         bt_torneo = new javax.swing.JButton();
         bt_equipo = new javax.swing.JButton();
@@ -155,6 +155,12 @@ public class main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tab.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabStateChanged(evt);
+            }
+        });
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -308,7 +314,7 @@ public class main extends javax.swing.JFrame {
 
         jPanel2.add(pn_deporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 14, 490, -1));
 
-        jTabbedPane1.addTab("Agregar", jPanel2);
+        tab.addTab("Agregar", jPanel2);
 
         jLabel1.setText("Arbol de periodos");
 
@@ -366,9 +372,9 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap(76, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Datos", jPanel1);
+        tab.addTab("Datos", jPanel1);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 530));
+        getContentPane().add(tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -421,6 +427,10 @@ public class main extends javax.swing.JFrame {
     private void bt_addpartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addpartMouseClicked
         bt_torneo.setEnabled(true);
     }//GEN-LAST:event_bt_addpartMouseClicked
+
+    private void tabStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabStateChanged
+        
+    }//GEN-LAST:event_tabStateChanged
 
     /**
      * @param args the command line arguments
@@ -492,7 +502,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JDialog jd_equipos;
     private javax.swing.JDialog jd_posiciones;
@@ -505,6 +514,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel pn_equipo;
     private javax.swing.JPanel pn_partido;
     private javax.swing.JPanel pn_torneo;
+    private javax.swing.JTabbedPane tab;
     private javax.swing.JTable tb_partidos;
     private javax.swing.JTable tb_pos;
     private javax.swing.JTextField tf_equiponame;
