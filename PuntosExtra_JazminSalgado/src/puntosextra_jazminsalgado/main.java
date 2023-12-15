@@ -61,6 +61,9 @@ public class main extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         pn_torneo = new javax.swing.JPanel();
         pn_deporte = new javax.swing.JPanel();
+        cb_tornoes = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -258,15 +261,35 @@ public class main extends javax.swing.JFrame {
 
         jPanel2.add(pn_torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 14, 490, -1));
 
+        jButton3.setText("Agregar");
+
         javax.swing.GroupLayout pn_deporteLayout = new javax.swing.GroupLayout(pn_deporte);
         pn_deporte.setLayout(pn_deporteLayout);
         pn_deporteLayout.setHorizontalGroup(
             pn_deporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+            .addGroup(pn_deporteLayout.createSequentialGroup()
+                .addGroup(pn_deporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pn_deporteLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pn_deporteLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(pn_deporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1)
+                            .addComponent(cb_tornoes, 0, 222, Short.MAX_VALUE))))
+                .addContainerGap(233, Short.MAX_VALUE))
         );
         pn_deporteLayout.setVerticalGroup(
             pn_deporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 471, Short.MAX_VALUE)
+            .addGroup(pn_deporteLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(cb_tornoes, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
 
         jPanel2.add(pn_deporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 14, 490, -1));
@@ -406,8 +429,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton bt_equipo;
     private javax.swing.JButton bt_partido;
     private javax.swing.JButton bt_torneo;
+    private javax.swing.JComboBox<String> cb_tornoes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -425,6 +450,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JDialog jd_equipos;
     private javax.swing.JDialog jd_posiciones;
     private javax.swing.JTree jt_periodos;
