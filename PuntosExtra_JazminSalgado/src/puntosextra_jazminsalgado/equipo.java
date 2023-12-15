@@ -4,6 +4,8 @@
  */
 package puntosextra_jazminsalgado;
 
+import java.util.Random;
+
 /**
  *
  * @author evaja
@@ -33,6 +35,8 @@ public class equipo {
     }
 
     public void setPuntos(int puntos) {
+        Random alea = new Random();
+        puntos = alea.nextInt(1,20);
         this.puntos = puntos;
     }
 
