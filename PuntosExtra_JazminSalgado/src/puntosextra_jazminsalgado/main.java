@@ -32,7 +32,7 @@ public class main extends javax.swing.JFrame {
         pm_tree = new javax.swing.JPopupMenu();
         mi_listaequipos = new javax.swing.JMenuItem();
         mi_tablaposiciones = new javax.swing.JMenuItem();
-        jDialog1 = new javax.swing.JDialog();
+        jd_equipos = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         l_equipos = new javax.swing.JList<>();
@@ -40,6 +40,9 @@ public class main extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tb_partidos = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
+        jd_posiciones = new javax.swing.JDialog();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tb_pos = new javax.swing.JTable();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         bt_torneo = new javax.swing.JButton();
@@ -68,9 +71,14 @@ public class main extends javax.swing.JFrame {
         pm_tree.add(mi_listaequipos);
 
         mi_tablaposiciones.setText("Mostrar Tabla de posiciones");
+        mi_tablaposiciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_tablaposicionesActionPerformed(evt);
+            }
+        });
         pm_tree.add(mi_tablaposiciones);
 
-        jDialog1.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jd_equipos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -78,10 +86,10 @@ public class main extends javax.swing.JFrame {
         );
         jScrollPane2.setViewportView(l_equipos);
 
-        jPanel7.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 29, 150, 350));
+        jPanel7.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 29, 150, 340));
 
         jButton1.setText("Mostrar Partidos");
-        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 162, 120, 50));
+        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 162, 150, 50));
 
         tb_partidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -98,7 +106,34 @@ public class main extends javax.swing.JFrame {
         jLabel4.setText("Lista de equipos");
         jPanel7.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, -1));
 
-        jDialog1.getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jd_equipos.getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        tb_pos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Puntaje", "Equipo"
+            }
+        ));
+        jScrollPane4.setViewportView(tb_pos);
+
+        javax.swing.GroupLayout jd_posicionesLayout = new javax.swing.GroupLayout(jd_posiciones.getContentPane());
+        jd_posiciones.getContentPane().setLayout(jd_posicionesLayout);
+        jd_posicionesLayout.setHorizontalGroup(
+            jd_posicionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_posicionesLayout.createSequentialGroup()
+                .addContainerGap(91, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
+        );
+        jd_posicionesLayout.setVerticalGroup(
+            jd_posicionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_posicionesLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -265,8 +300,18 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_jt_periodosMouseClicked
 
     private void mi_listaequiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_listaequiposActionPerformed
-        
+        jd_equipos.setModal(true);
+        jd_equipos.pack();
+        jd_equipos.setLocationRelativeTo(this);
+        jd_equipos.setVisible(true);
     }//GEN-LAST:event_mi_listaequiposActionPerformed
+
+    private void mi_tablaposicionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_tablaposicionesActionPerformed
+        jd_posiciones.setModal(true);
+        jd_posiciones.pack();
+        jd_posiciones.setLocationRelativeTo(this);
+        jd_posiciones.setVisible(true);
+    }//GEN-LAST:event_mi_tablaposicionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,7 +358,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton bt_partido;
     private javax.swing.JButton bt_torneo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -328,13 +372,17 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JDialog jd_equipos;
+    private javax.swing.JDialog jd_posiciones;
     private javax.swing.JTree jt_periodos;
     private javax.swing.JList<String> l_equipos;
     private javax.swing.JMenuItem mi_listaequipos;
     private javax.swing.JMenuItem mi_tablaposiciones;
     private javax.swing.JPopupMenu pm_tree;
     private javax.swing.JTable tb_partidos;
+    private javax.swing.JTable tb_pos;
     private javax.swing.JTextField tf_equiponame;
     // End of variables declaration//GEN-END:variables
 }
